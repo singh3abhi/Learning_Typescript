@@ -1,0 +1,1 @@
+Created this repo for purpose of learning typescript
