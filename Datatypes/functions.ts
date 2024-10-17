@@ -28,3 +28,42 @@ const func3: FuncType3 = (...m) => {
 }
 
 func3(20,25,30,35,40,60);
+
+// Functions with objects
+
+interface ProductType {
+    name: string,
+    stock: number,
+    price: number,
+    photo: string,
+    readonly id: string; // Once assigned then it won't change
+}
+
+type GetDataType = (product: ProductType) => void;
+
+const getData: GetDataType = (product) => {
+    console.log(product.name);
+    // product.id = "mkl"; -> Gives error here
+}
+
+const productOne: ProductType  = {
+    name: "Mac",
+    stock: 50,
+    price: 1200,
+    photo: "sampleImage.png",
+    id: "abc",
+}
+
+getData(productOne);
+
+// Error type
+
+const errorHandler1 = (): Error => {
+    return new Error();
+}
+
+// Never Type
+
+const errorHandler2 = (): never => {
+    throw new Error();
+}
